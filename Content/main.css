@@ -1,0 +1,66 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.poster {
+	background-image: url('../Content/Images/Dublindonut/donuts2.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.poster h1{
+	text-align: center;
+	font-family: Helvetica;
+	color: white;
+	font-weight: bold;
+	font-size: 100px;
+}
+
+.poster p {
+	text-align: center;
+	color: white;
+	font-style: italic;
+	font-size: 20px;
+}
+
+.links {
+	font-family: Helvetica;
+	font-size: 50px;
+	text-align: center;
+	padding: 0px;
+	background-color: black;
+}
+
+.links .container {
+	bottom: 0px;
+	position: fixed;
+	padding: 0px;
+	width: 100%;
+}
+
+.links a{
+	color: white;
+	padding-right: 50px;
+	padding-left: 50px;
+	/*text-shadow: black 0em 0em .1em;*/
+}
+
+.links a:hover{
+	color: #d3d3d3;
+	/*text-shadow: black 0em 0em .1em;*/
+}
