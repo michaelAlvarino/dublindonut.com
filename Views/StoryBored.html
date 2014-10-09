@@ -8,7 +8,7 @@
   </head>
 
 <body>
-
+  <?php include('mysqli_connect.php');?>
   <div class="nav">
     <div class="container">
       <ul>
@@ -40,9 +40,9 @@
     <div class="container">
       <h1>Type something</h1>
       <h3>Or, don't type anything at all</h3>
-      <form>
+      <form action="poemInfo.php" method="post" id="poem" name="poem">
         <div class="form-group">
-          <textarea class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
+			<textarea name="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
         </div>
         </form>
 
