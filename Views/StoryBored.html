@@ -40,11 +40,11 @@
     <div class="container">
       <h1>Type something</h1>
       <h3>Or, don't type anything at all</h3>
-      <form action="poemInfo.php" method="post" id="poem" name="poem">
+      <form action="poemInfo.php" method="post"><!--removed name/id = "poem" and place in textarea tag -->
         <div class="form-group">
-			<textarea name="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
+			<textarea name="poem" id="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
         </div>
-        </form>
+      </form>
 
         <div class="button-group">
           <p class="counter">500</p>
