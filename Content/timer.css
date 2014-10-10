@@ -2,6 +2,35 @@
 	text-align: center;
 }
 
+.poster {
+	background-image: url("../Content/Images/timer/timer.jpg");
+	height: 500px;
+	background-size: cover;
+}
+
+.poster .container{
+	padding: 100px;
+}
+
+.poster h1 {
+	color: white;
+	font-weight: bold;
+	font-size: 100px;
+	margin: 0px;
+}
+
+.poster p {
+	color: white;
+	font-style: italic;
+	text-align: center;
+}
+
 .main .function p {
-	font-size: 25px;
+	font-size: 50px;
+	font-weight: bold;
+	background-color: white;
+}
+
+.main .input {
+	padding: 20px;
 }
