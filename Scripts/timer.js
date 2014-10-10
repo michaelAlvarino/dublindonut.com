@@ -15,6 +15,10 @@ $(document).ready(function() {
 	//initialize current round
 	var currentRound = 1;
 
+	//total seconds needed to complete round
+	var totalTime = 0;
+	var totalTimeCounter = 0;
+
 	//Start timer, run count function
 	$('.start').on('click', function(){
 		run = true;
@@ -52,6 +56,14 @@ $(document).ready(function() {
 		rest = $("#rest").val();
 		$('.progress-text').text("Progress");
 		$('.test').text("Reset :(");
+
+		//Reset progress bar
+		$('.progress-bar').css('width',0+"%");
+		$('.progress-bar').text("0%");	
+
+		//Reset current status
+		$('.current-status').text("Current Status");
+		$('.current-status').css('color',"black");
 	});
 
 	//Format time to always have two digits e.g. 00:00:05 instead of 0:0:5
@@ -97,15 +109,19 @@ $(document).ready(function() {
 		work = $("#work").val();
 		rest = $("#rest").val();
 
+		totalTime = (work + rest) / rounds;
+
 		if((rounds == "") || (work == "") || (rest == "")) {
 			$('.test-2').text("Please fill in all the values... dickhole");			
 		}
+		if((rounds <= 0) || (work <= 0) || (rest <= 0)){
+			$('.test-2').text("Fill in a positive number for number of rounds / work / rest");
+		}
 		else{
 			$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
-			$('.test-2').text("Rounds: " + rounds + " Work/Rest Interval: " + work + "/" + rest);
+			$('.test-2').text("Rounds: " + rounds + " Work/Rest Interval: " + work + " s / " + rest + " s" + totalTime);
 			//progress();
 		}
-
 	});
 
 	//Progress Text
@@ -113,10 +129,12 @@ $(document).ready(function() {
 		if(work > 0) {
 			work--;
 			$('.current-status').text("Work");
+			$('.current-status').css('color',"green");
 		}
 		else if ((work == 0) && (rest > 0)) {
 			rest--;
 			$('.current-status').text("Rest");
+			$('.current-status').css('color',"red");
 		
 			if (rest == 0) {
 				work = $("#work").val();
@@ -129,9 +147,20 @@ $(document).ready(function() {
 		if(currentRound-1 == rounds){
 			run = false;
 			currentRound--;
-			$('.test').text("IT'S OVER");
+			$('.test').text("Nice job! It's over!");
+			$('.current-status').text("DONE!!! Lu is so proud of you!!!");
+			$('.current-status').css('color',"lightblue");
 		}
 
+		//increment totalTimeCounter for progress bar
+		totalTimeCounter++;
+		var percent = 100*currentRound / rounds;
+		//var percent = totalTimeCounter / totalTime;
+
+		//Update web page with round
 		$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
+		$('.progress-bar').css('width',percent+"%");
+		$('.progress-bar').text(percent + "%");
+		//$('.progress-text').text("Progress: " + currentRound + " / " + rounds + " " + percent + "%");
 	}
 });

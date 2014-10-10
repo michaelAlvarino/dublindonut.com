@@ -1,5 +1,44 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
 .main {
 	text-align: center;
+}
+
+.main .status .current-status{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.main .status .progress {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.main .status .progress-bar{
+	width: 0%;
+}
+
+.main .instructions ul {
+	list-style-type: none;
+	padding: 0px;
 }
 
 .poster {
@@ -10,6 +49,14 @@
 
 .poster .container{
 	padding: 100px;
+}
+
+.poster .container a {
+	color: white;
+}
+
+.poster .container a:hover {
+	color: white;
 }
 
 .poster h1 {
