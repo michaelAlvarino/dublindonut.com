@@ -119,7 +119,7 @@ $(document).ready(function() {
 		}
 		else{
 			$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
-			$('.test-2').text("Rounds: " + rounds + " Work/Rest Interval: " + work + " s / " + rest + " s" + totalTime);
+			$('.test-2').text("Rounds: " + rounds + " Work/Rest Interval: " + work + " s / " + rest + " s");
 			//progress();
 		}
 	});
@@ -139,7 +139,7 @@ $(document).ready(function() {
 			if (rest == 0) {
 				work = $("#work").val();
 				rest = $("#rest").val();
-				++currentRound;
+				currentRound++;
 			}
 		}
 
@@ -159,8 +159,9 @@ $(document).ready(function() {
 
 		//Update web page with round
 		$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
+
+		//Update progress bar
 		$('.progress-bar').css('width',percent+"%");
 		$('.progress-bar').text(percent + "%");
-		//$('.progress-text').text("Progress: " + currentRound + " / " + rounds + " " + percent + "%");
 	}
 });
