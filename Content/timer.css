@@ -1,3 +1,7 @@
+/* use a . to point to a class from the html
+   use a # to point to an id from html
+   It's the same when you use jQuery and javascript btw*/
+
 .nav ul {
 	text-transform: uppercase;
 	font-family: Helvetica;

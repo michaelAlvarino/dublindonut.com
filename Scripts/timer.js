@@ -8,7 +8,7 @@ $(document).ready(function() {
 	var hours = 0;
 
 	//initialize work and rest times
-	var rounds = 0;
+	var rounds = 0;//<--- This is the variable that doesn't act like an int
 	var work = 0;
 	var rest = 0;
 
@@ -17,8 +17,11 @@ $(document).ready(function() {
 
 	//total seconds needed to complete round
 	var totalTime = 0;
+
+	//count seconds elapsed
 	var totalTimeCounter = 0;
 
+	//CLICK EVENT
 	//Start timer, run count function
 	$('.start').on('click', function(){
 		run = true;
@@ -29,6 +32,7 @@ $(document).ready(function() {
 		count();
 	});
 
+	//CLICK EVENT
 	//Stop timer
 	$('.stop').on('click', function(){
 		run = false;
@@ -36,6 +40,7 @@ $(document).ready(function() {
 		$('.test').text("Stop heuheuheuhe");
 	});
 
+	//CLICK EVENT
 	//Reset timer, set seconds back to zero and stop timer
 	$('.reset').on('click', function(){
 		run = false;
@@ -54,6 +59,8 @@ $(document).ready(function() {
 		rounds = $("#rounds").val();
 		work = $("#work").val();
 		rest = $("#rest").val();
+
+		//Reset progress text
 		$('.progress-text').text("Progress");
 		$('.test').text("Reset :(");
 
@@ -66,43 +73,7 @@ $(document).ready(function() {
 		$('.current-status').css('color',"black");
 	});
 
-	//Format time to always have two digits e.g. 00:00:05 instead of 0:0:5
-	function formatTime(val){
-		if (val < 10){
-			return "0" + val;
-		}
-		return val;
-	}
-
-	//count up from zero
-	function count(){
-		/**setTimeout(function, x) runs the function x millliseconds 
-		after being called**/
-		setTimeout(function(){
-
-			//Only run if start is clicked
-			if(run){
-
-				//run timer
-				sec += 1;
-				if (sec == 60){
-					sec = 0;
-					min += 1;
-				}
-				if (min == 60) {
-					min = 0;
-					hours += 1;
-				}
-				$('.timer').text(formatTime(hours) + " : " + formatTime(min) + " : " + formatTime(sec));
-				
-				//Repeat
-				count();
-				progress();
-			}
-		},1000);
-	}
-
-
+	//CLICK EVENT: Set rounds, work, and interval
 	//Round input
 	$('.ok').on('click', function(){
 		rounds = $("#rounds").val();
@@ -124,18 +95,60 @@ $(document).ready(function() {
 		}
 	});
 
-	//Progress Text
+	//Format time to always have two digits e.g. 00:00:05 instead of 0:0:5
+	function formatTime(val){
+		if (val < 10){
+			return "0" + val;
+		}
+		return val;
+	}
+
+	//Count up from zero
+	function count(){
+		/**setTimeout(function, x) runs the function x millliseconds 
+		after being called**/
+		setTimeout(function(){
+
+			//Only run if start is clicked
+			if(run){
+
+				//run timer
+				sec += 1;
+				if (sec == 60){
+					sec = 0;
+					min += 1;
+				}
+				if (min == 60) {
+					min = 0;
+					hours += 1;
+				}
+
+				//UPDATE timer
+				$('.timer').text(formatTime(hours) + " : " + formatTime(min) + " : " + formatTime(sec));
+				
+				//Repeat
+				count();
+				progress();
+			}
+		},1000);
+	}
+
+	//keep track of rounds
 	function progress() {
+
+		//Count down work interval
 		if(work > 0) {
 			work--;
 			$('.current-status').text("Work");
 			$('.current-status').css('color',"green");
 		}
+		//Count down rest interval
 		else if ((work == 0) && (rest > 0)) {
 			rest--;
 			$('.current-status').text("Rest");
 			$('.current-status').css('color',"red");
-		
+			
+			//Go to next round if work == rest == 0 and rest counter
 			if (rest == 0) {
 				work = $("#work").val();
 				rest = $("#rest").val();
@@ -153,14 +166,17 @@ $(document).ready(function() {
 		}
 
 		//increment totalTimeCounter for progress bar
-		totalTimeCounter++;
-		var percent = 100*currentRound / rounds;
+		//Not working
+		//totalTimeCounter++;
 		//var percent = totalTimeCounter / totalTime;
-
-		//Update web page with round
+		
+		//Progress bar percentage
+		var percent = 100*currentRound / rounds;
+		
+		//UPDATE round text
 		$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
 
-		//Update progress bar
+		//UPDATE progress bar
 		$('.progress-bar').css('width',percent+"%");
 		$('.progress-bar').text(percent + "%");
 	}
