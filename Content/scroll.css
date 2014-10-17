@@ -1,0 +1,37 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.top {
+	position: fixed;
+	font-family: courier;
+}
+
+.bottom {
+	top: 1327px;
+	height: 2000px;
+	font-family: courier;
+	vertical-align: bottom;
+	position: absolute;
+}
+
+.bottom p {
+	padding-bottom: 3px;
+	padding-top: 0px;
+}
+

@@ -1,0 +1,37 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.musicplayer {
+	text-align: center;
+}
+
+.poster {
+	background-image: url('../Content/Images/musicplayer/musicplayer.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	height: 500px;
+}
+
+.poster h1 {
+	font-size: 100px;
+	color: white;
+	text-shadow: 0 0 .1em 0 white;
+	padding: 100px;
+	font-weight: bold;
+}

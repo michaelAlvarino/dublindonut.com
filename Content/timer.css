@@ -49,6 +49,7 @@
 	background-image: url("../Content/Images/timer/timer.jpg");
 	height: 500px;
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 .poster .container{
