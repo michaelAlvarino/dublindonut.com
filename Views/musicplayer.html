@@ -23,20 +23,38 @@
 
   <div class="poster">
     <div class="container">
-      <h1>DublinDonuts EP</p>
+      <h1>DublinDonuts EP</h1>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="container">
+      <h2>Short and Sweet</h2>
+      <p>These are a bunch of tracks I made from 2011-2014. Nothing too crazy. I'm not trying to step on Dillas toes by calling this Donuts -- this blog just happens to be called Dublin Donuts. But still, these tracks are short and just the tiniest bit sweet.</p>
+      <p>Enjoy!</p>
     </div>
   </div>
 
   <div class="musicplayer">
     <div class="container">
+      <p class="status"></p>
       <img src="../Content/Images/musicplayer/prev.png" href="#" class="prev"></a> 
-      <img src="../Content/Images/musicplayer/play.png"  href="#" class="play"></a>     
-      <img src="../Content/Images/musicplayer/next.png"  href="#" class="next"></a>
+      <img src="../Content/Images/musicplayer/play.png" href="#" class="play"></a>     
+      <img src="../Content/Images/musicplayer/next.png" href="#" class="next"></a>
+      <input type="range" id="seek" class="seek" value="0" max="" step='1'></input>
+      <p class="time">00:00 / 00:00</p>
+      <!--
       <p>
-        <a href="#" class="pause">Pause</a>
         <a href="#" class="mute">Mute</a>
       </p>
-      <p class="status">Status</p>
+
+    -->
+      <div class="volumecontainer">
+        <img src="../Content/Images/musicplayer/volume.png"></img>
+        <input type="range" class="volume" value="1" max="1" step='.01'></input>
+      </div>
+
+      <p class="test"></p>
    </div>
   </div>
 
