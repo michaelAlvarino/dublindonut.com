@@ -1,0 +1,81 @@
+.intro {
+	padding: 0px;
+	background-image: url('http://upload.wikimedia.org/wikipedia/commons/7/7f/Pug_portrait.jpg');
+	background-size: cover;	
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 600px;
+}
+
+.intro h1 {
+	font-size: 100px;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: white;
+}
+
+.intro p {
+	font-family: Helvetica;
+	color: white;
+}
+
+.intro a {
+	font-family: Helvetica;
+	font-style: italic;
+}
+
+.intro .container {
+	position: relative;
+	top: 50px;
+	left: 10px;
+}
+
+.slides img {
+	display: inline;
+}
+
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav {
+
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+}
+
+.nav a {
+	color: black;
+}
+
+.text-stuff {
+	padding: 10px;
+	background-color: #d3d3d3;
+	color: gray;
+	font-family: Helvetica;
+}
+
+.text-stuff h2 {
+	font-weight: bold;
+}
+
+.thumbnail {
+	width: 250px;
+}
+
+.outro a {
+	font-style: italic;
+}
+
+.footer {
+	background: black;
+	text-align: center;
+}

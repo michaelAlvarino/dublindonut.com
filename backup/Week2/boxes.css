@@ -1,0 +1,62 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+
+.poster{
+	background-image: url("./Images/colorbox.jpg");
+	color:white;
+	height: 500px;
+	background-size: cover;
+}
+
+.poster .container {
+	padding: 50px;
+}
+
+.poster h1 {
+	font-size: 100px;
+	font-weight: bold;
+}
+
+.poster p {
+	font-style: italic;
+}
+
+.colorbox {
+	width: 100%;
+	background-color: #d3d3d3;
+}
+
+.info {
+	text-align: center;
+	color: gray;
+}
+
+.box {
+	position: relative;
+	height: 50px;
+	width: 50px;
+	background-color: white;
+	float: left;
+	box-shadow: black 0 0 0em;
+}
+
+.clear {
+	clear: both;
+}

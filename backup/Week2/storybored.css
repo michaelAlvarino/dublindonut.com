@@ -1,0 +1,117 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+
+	font-size: 12px;
+	padding: 5px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+
+}
+
+.nav a {
+	color: black;
+}
+
+.intro {
+	background: url("./Images/skyline.jpg");
+	height: 500px;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 0px;
+}
+
+.intro .container {
+	padding: 50px;
+	font-family: Helvetica;
+	color: white;
+	position: relative;
+}
+
+.intro .container p {
+	font-style: italic;
+}
+
+.intro .container h1{
+	font-weight: bold;
+	font-size: 100px;
+}
+
+.text-stuff {
+	text-align: center;
+	background: white;
+}
+
+.welcome {
+	text-align: center;
+	background: #FCFCFC;
+	padding: 0px;
+}
+
+.welcome h1{
+	font-family: Helvetica;
+	color: gray;
+	font-weight: bold;
+}
+.welcome p{
+	font-family: Helvetica;
+	color: gray;
+}
+
+.welcome .container {
+
+}
+
+.text-stuff h1{
+	padding: 0px;
+	font-family: Helvetica;
+	color: gray;
+	font-weight: bold;
+}
+
+.text-stuff h3{
+	padding: 0px;
+	font-family: Helvetica;
+	color: gray;
+	font-style: italic;
+	font-size: 20px;
+}
+
+
+.text-stuff .form-group{
+	background-color: white;
+}
+
+.text-stuff .button-group .counter{
+	color: lightgray;
+	display: inline;
+}
+
+.text-stuff h2{
+	padding: 0px;
+	font-family: Helvetica;
+	color: gray;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.text-stuff .posts li{
+	background-color: white;
+  	border-bottom: 1px solid #d8d8d8;
+	padding-top: 10px;
+  	padding-left: 20px;
+  	padding-right: 20px;
+  	padding-bottom: 10px
+ }
+
+.text-stuff ul{
+	list-style-type: none;
+}
+
+.footer {
+	background-color: black;
+}

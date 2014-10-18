@@ -1,0 +1,142 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.poster {
+	padding: 0px;
+	background-image: url('donuts.jpg');
+	background-size: cover;	
+	background-repeat: horizontal;
+	height: 400px;
+	background-position: fixed;
+}
+
+.slideshow {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+.slide {
+	background-position: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+	width: 100%;
+}
+
+.slide-feature-1 {
+	background-image: url('donuts.jpg');
+	background-size: cover;
+}
+
+.slide-feature-2 {
+	background-image: url('donuts2.jpg');
+	background-size: cover;
+}
+
+.slide-feature-3 {
+	background-image: url('donuts3.jpg');
+	background-size: cover;
+}
+
+.slide h1{
+	text-align: center;
+	font-family: Helvetica;
+	color: white;
+	font-weight: bold;
+	font-size: 100px;
+}
+
+.slide p {
+	text-align: center;
+	color: white;
+	font-style: italic;
+	font-size: 20px;
+}
+
+.slider-nav {
+	margin: 20px;
+	text-align: center;
+
+}
+
+.arrow-prev{
+	margin-right: 45px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 9px;
+}
+
+.arrow-next{
+	margin-left: 45px;
+	vertical-align: top;
+	display: inline-block;
+	margin-top: 9px;
+}
+
+.slider-dots {
+	display: inline-block;
+	color: #bbbcbc;
+	padding-left: 0;
+}
+
+.slider-nav li{
+	text-align: center;
+	display: inline;
+	font-size: 30px;
+}
+
+.slider-dots li.active-dot{
+	color: #d3d3d3;
+}
+
+.poster h1{
+	text-align: center;
+	font-family: Helvetica;
+	color: white;
+	font-weight: bold;
+	font-size: 100px;
+}
+
+.poster p {
+	text-align: center;
+	color: white;
+	font-style: italic;
+	font-size: 20px;
+}
+
+.website-project {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	font-family: Helvetica;
+	text-align: center;
+}
+
+.website-project .what-we-do h2{
+	font-weight: bold;
+
+}
+.website-project ul {
+	padding: 0px;
+	list-style-type: none;
+}
