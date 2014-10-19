@@ -2,14 +2,13 @@ var main = function(){
 	$('.btn').click(function() {
 		var post = $('.status-box').val();
 		$('<li>').text(post).prependTo('.posts');
-		//document.getElementById('id').innerHTML = '<li> #{post}</li>';
 		$('.status-box').val("");
     	$('.counter').text('500');
     	$('.btn').addClass('disabled');
 		alert("clicked");
 		
 		// add ajax
-		$.ajax({type: "POST",url: "../Views/poemInfo.php", success:function(){alert("Sent");});
+		$.ajax({type: "POST",url: "Views/poemInfo.php", success:function(){alert("Sent");});
 	});
 
 	$('.status-box').keyup(function() {

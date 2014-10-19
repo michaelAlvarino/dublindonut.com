@@ -10,10 +10,10 @@ var i = 0;
 var playing = false;
 
 //Is playlist showing or hidden?
-var hidden = true;
+var hidden = false;
 
 //Audio
-var currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+var currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 
 //audioscrubber controls
 function audioScrubber(){
@@ -38,21 +38,21 @@ function createPlaylist(){
 	}
 };
 
-function test(){
-	$('.test').text("it works");
-};
-
 function playSelected(track){
 	currentAudio.pause();
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[track]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[track]);
 	i = track;
 	playTrack();
 };
 
 //Play song
 function playTrack() {
-	//playSelected();
+<<<<<<< HEAD
 	$('.play').attr("src","../Content/Images/musicplayer/pause.png");
+=======
+	//playSelected();
+	$('.play').attr("src","Content/Images/musicplayer/pause.png");
+>>>>>>> origin/master
 	audioScrubber();
 		
 	//Bind volume bar to audio
@@ -76,7 +76,7 @@ function playTrack() {
 
 //Pause audio
 function pauseTrack(){
-	$('.play').attr("src","../Content/Images/musicplayer/play.png");
+	$('.play').attr("src","Content/Images/musicplayer/play.png");
 	currentAudio.pause();
 	$('.status').text("Paused");	
 	playing = false;
@@ -91,7 +91,7 @@ function prevTrack(){
 	else {
 		i--;
 	}
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 	playTrack();
 };
 
@@ -104,7 +104,7 @@ function nextTrack(){
 	else {
 		i++;
 	}
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 	playTrack();
 };
 
@@ -129,6 +129,7 @@ function formatTime(t) {
 
 function main(){
 	createPlaylist();
+	$('.playlist-list').hide();
 	
 	//Play current track
 	$('.play').on('click',function() {
@@ -155,11 +156,11 @@ function main(){
 		$('.playlist-list').show();
 		if (currentAudio.muted == true) {
 			currentAudio.muted = false;
-			$('.mute').attr("src","../Content/Images/musicplayer/volume.png");
+			$('.mute').attr("src","Content/Images/musicplayer/volume.png");
 		}
 		else {
 			currentAudio.muted = true;
-			$('.mute').attr("src","../Content/Images/musicplayer/volume-mute.png");
+			$('.mute').attr("src","Content/Images/musicplayer/volume-mute.png");
 		}
 	});
 
