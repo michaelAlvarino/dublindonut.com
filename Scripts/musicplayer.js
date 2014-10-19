@@ -13,7 +13,7 @@ var playing = false;
 var hidden = true;
 
 //Audio
-var currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+var currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 
 //audioscrubber controls
 function audioScrubber(){
@@ -44,7 +44,7 @@ function test(){
 
 function playSelected(track){
 	currentAudio.pause();
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[track]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[track]);
 	i = track;
 	playTrack();
 };
@@ -52,7 +52,7 @@ function playSelected(track){
 //Play song
 function playTrack() {
 	//playSelected();
-	$('.play').attr("src","../Content/Images/musicplayer/pause.png");
+	$('.play').attr("src","Content/Images/musicplayer/pause.png");
 	audioScrubber();
 		
 	//Bind volume bar to audio
@@ -76,7 +76,7 @@ function playTrack() {
 
 //Pause audio
 function pauseTrack(){
-	$('.play').attr("src","../Content/Images/musicplayer/play.png");
+	$('.play').attr("src","Content/Images/musicplayer/play.png");
 	currentAudio.pause();
 	$('.status').text("Paused");	
 	playing = false;
@@ -91,7 +91,7 @@ function prevTrack(){
 	else {
 		i--;
 	}
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 	playTrack();
 };
 
@@ -104,7 +104,7 @@ function nextTrack(){
 	else {
 		i++;
 	}
-	currentAudio = new Audio('../Content/Sounds/musicplayer/' + playlist[i]);
+	currentAudio = new Audio('Content/Sounds/musicplayer/' + playlist[i]);
 	playTrack();
 };
 
@@ -155,11 +155,11 @@ function main(){
 		$('.playlist-list').show();
 		if (currentAudio.muted == true) {
 			currentAudio.muted = false;
-			$('.mute').attr("src","../Content/Images/musicplayer/volume.png");
+			$('.mute').attr("src","Content/Images/musicplayer/volume.png");
 		}
 		else {
 			currentAudio.muted = true;
-			$('.mute').attr("src","../Content/Images/musicplayer/volume-mute.png");
+			$('.mute').attr("src","Content/Images/musicplayer/volume-mute.png");
 		}
 	});
 
