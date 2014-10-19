@@ -48,7 +48,12 @@ function playSelected(track){
 //Play song
 function playTrack() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$('.play').attr("src","../Content/Images/musicplayer/pause.png");
+=======
+	//playSelected();
+	$('.play').attr("src","Content/Images/musicplayer/pause.png");
+>>>>>>> origin/master
 =======
 	//playSelected();
 	$('.play').attr("src","Content/Images/musicplayer/pause.png");
