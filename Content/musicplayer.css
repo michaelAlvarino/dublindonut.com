@@ -48,7 +48,7 @@
 .poster h1 {
 	font-size: 100px;
 	color: white;
-	text-shadow: 0 0 .1em 0 white;
+	text-shadow: 0em 0em .1em 0em black;
 	font-weight: bold;
 }
 
@@ -123,4 +123,33 @@
 .musicplayer .volume {
 	vertical-align: middle;
 	display: inline;
+}
+
+.musicplayer .playlist ul{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.musicplayer .playlist .playlist-list li{
+
+}
+
+.musicplayer .playlist {
+	/**border: 1px solid black;**/
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mute:hover{
+	cursor: pointer;
+}
+
+.playlist-click{
+	color: black;
+}
+
+.playlist-click:hover{
+	color: black;
+	text-decoration: none;
 }

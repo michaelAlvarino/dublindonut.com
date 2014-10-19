@@ -37,24 +37,25 @@
 
   <div class="musicplayer">
     <div class="container">
-      <p class="status"></p>
+      <p class="status">STATUS</p>
       <img src="../Content/Images/musicplayer/prev.png" href="#" class="prev"></a> 
       <img src="../Content/Images/musicplayer/play.png" href="#" class="play"></a>     
       <img src="../Content/Images/musicplayer/next.png" href="#" class="next"></a>
-      <input type="range" id="seek" class="seek" value="0" max="" step='1'></input>
+      <input type="range" id="seek" class="seek" value="0" max=""></input>
       <p class="time">00:00 / 00:00</p>
-      <!--
-      <p>
-        <a href="#" class="mute">Mute</a>
-      </p>
 
-    -->
       <div class="volumecontainer">
-        <img src="../Content/Images/musicplayer/volume.png"></img>
+        <img class="mute" src="../Content/Images/musicplayer/volume.png"></img>
         <input type="range" class="volume" value="1" max="1" step='.01'></input>
       </div>
 
       <p class="test"></p>
+
+      <div class="playlist">
+          <a href="javascript:void()" class="playlist-click"><b>PLAYLIST</b></a>
+          <ul class="playlist-list">
+          </ul>
+      </div>
    </div>
   </div>
 
