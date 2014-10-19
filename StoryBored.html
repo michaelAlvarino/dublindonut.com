@@ -4,12 +4,11 @@
 <html>
   <head>
     <title>StoryBored</title>
-    <link rel="stylesheet" href="../Content/bootstrap.css">
-    <link rel="stylesheet" href="../Content/storybored.css">
+    <link rel="stylesheet" href="Content/bootstrap.css">
+    <link rel="stylesheet" href="Content/storybored.css">
   </head>
 
 <body>
-<?php error_reporting(0); include('./db/mysqli_connect.php');?>
   <div class="nav">
     <div class="container">
       <ul>
@@ -41,7 +40,7 @@
     <div class="container">
       <h1>Type something</h1>
       <h3>Or, don't type anything at all</h3>
-      <form method="POST" action="./db/poemInfo.php">
+      <form method="POST" action="/db/poemInfo.php">
         <div class="form-group">
           <textarea type="Submit" name="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
         </div>
