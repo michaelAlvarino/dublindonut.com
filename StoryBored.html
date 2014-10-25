@@ -40,17 +40,15 @@
     <div class="container">
       <h1>Type something</h1>
       <h3>Or, don't type anything at all</h3>
-      <form method="POST" action="db/poemInfo.php">
+      <form action="db/poemInfo.php" method="POST" class="ajax">
         <div class="form-group">
-          <textarea type="Submit" name="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
+          <textarea name="poem" class="form-control status-box" rows="4" placeholder="Write me a poem or short story in 500 characters"></textarea>
         </div>
-        </form>
-
         <div class="button-group">
           <p class="counter">500</p>
-          <button href="#" class="btn btn-primary">Post</button>
+          <input type="submit" href="#" class="btn btn-primary"></input>
         </div>
-
+      </form>
         <h2>Stories and Poems</h2>
         <div>
         <ul class="posts">
@@ -67,7 +65,7 @@
   </div>
 
 <script src="Scripts/jquery-1.11.1.min.js"></script>
-<script src="Scripts/storybored.js"></script>
+<script src="Scripts/storybored_ajax.js"></script>
 
 </body>
 
