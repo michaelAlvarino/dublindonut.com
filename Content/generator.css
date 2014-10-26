@@ -1,0 +1,66 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.generator {
+	background-color: lightblue;
+	text-align: center;
+	height: 50vh;
+}
+
+.generator .container {
+		padding:75px;
+}
+
+.generator h1{
+	color: white;
+}
+
+
+
+.generator .clicker-container {
+	border: 2px solid white;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.clicker-main {
+	background-color: lightblue;
+	height: 50vh;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.clicker-main .clicker {
+	color: white;
+}
+.clicker-main .clicker-container a:hover{
+	text-decoration: none;
+}
+
+.clicker-main .clicker-container {
+	border: 2px solid white;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+
+}
