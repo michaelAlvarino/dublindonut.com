@@ -27,6 +27,7 @@ $('form.ajax').on('submit', function(){
 		success: function(response){
 			console.log(response);
 			$("[name=poem]").val('');
+		}
 			
 	});
 
