@@ -1,9 +1,9 @@
 <?php
 // Define connection variables
-$DBServer = "localhost";  // server name or IP address
-$DBUser = "malvarino";
+$DBServer = "pdb18.atspace.me";  // server name or IP address
+$DBUser = "1733679_sb";
 $DBPass = "pass.WORD1";
-$DBName = "poem";
+$DBName = "1733679_sb";
 
 // Create connection
 $conn = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
