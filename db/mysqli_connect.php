@@ -2,7 +2,7 @@
 // Define connection variables
 $DBServer = "pdb18.atspace.me";  // server name or IP address
 $DBUser = "1733679_sb";
-$DBPass = "pass.WORD1";
+$DBPass = "";
 $DBName = "1733679_sb";
 
 // Create connection
