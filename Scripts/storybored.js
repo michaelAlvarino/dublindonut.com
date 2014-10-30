@@ -13,15 +13,15 @@ var main = function(){
 		var charactersLeft = 500 - postLength;
 		$('.counter').text(charactersLeft);
 
-	if(charactersLeft < 0){
-		$('.btn').addClass('disabled');
-	}
-	else if(charactersLeft == 500){
-		$('.btn').addClass('disabled');
-	}
-	else {
-		$('.btn').removeClass('disabled');
-	}
+		if(charactersLeft < 0){
+			$('.btn').addClass('disabled');
+		}
+		else if(charactersLeft == 500){
+			$('.btn').addClass('disabled');
+		}
+		else {
+			$('.btn').removeClass('disabled');
+		}
 
 	});
 	$('.btn').addClass('disabled');
