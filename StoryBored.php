@@ -53,36 +53,36 @@
         <div>
         <ul class="posts">
           <li><?php
-          	include('db/mysqli_connect.php');
-          	$query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM poems mx ) m ON m.max_id = p.poem_pk";
+            include('db/mysqli_connect.php');
+            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM Poem mx ) m ON m.max_id = p.poem_pk";
             $result = mysqli_query($conn,$query);
             $followingdata = $result->fetch_assoc();
             echo $followingdata["poem"];
           ?></li>
           <li><?php
             include('db/mysqli_connect.php');
-            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM poems mx ) m ON m.max_id = p.poem_pk";
+            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM Poem mx ) m ON m.max_id = p.poem_pk";
             $result = mysqli_query($conn,$query);
             $followingdata = $result->fetch_assoc();
             echo $followingdata["poem"];
           ?></li>
           <li><?php
             include('db/mysqli_connect.php');
-            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM poems mx ) m ON m.max_id = p.poem_pk";
+            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM Poem mx ) m ON m.max_id = p.poem_pk";
             $result = mysqli_query($conn,$query);
             $followingdata = $result->fetch_assoc();
             echo $followingdata["poem"];
           ?></li>
           <li><?php
             include('db/mysqli_connect.php');
-            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM poems mx ) m ON m.max_id = p.poem_pk";
+            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM Poem mx ) m ON m.max_id = p.poem_pk";
             $result = mysqli_query($conn,$query);
             $followingdata = $result->fetch_assoc();
             echo $followingdata["poem"];
           ?></li>
           <li><?php
             include('db/mysqli_connect.php');
-            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM poems mx ) m ON m.max_id = p.poem_pk";
+            $query = "SELECT poem FROM Poem p JOIN ( SELECT FLOOR(MIN(mx.poem_pk) + RAND() * (MAX(mx.poem_pk)-MIN(mx.poem_pk))) AS max_id FROM Poem mx ) m ON m.max_id = p.poem_pk";
             $result = mysqli_query($conn,$query);
             $followingdata = $result->fetch_assoc();
             echo $followingdata["poem"];
