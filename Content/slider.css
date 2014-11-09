@@ -1,0 +1,53 @@
+.nav ul {
+	text-transform: uppercase;
+	font-family: Helvetica;
+	font-weight: bold;
+	color: gray;
+	font-size: 12px;
+	padding: 0px;
+}
+
+.nav li {
+	display: inline;
+	padding: 10px;
+	color: gray;
+}
+
+.nav a {
+	color: black;
+}
+
+.slide {
+	height: 600px;
+	display: none;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.active-slide {
+	display:inline;
+}
+
+.slider-nav {
+	text-align: center;
+}
+
+.music {
+	background-image: url('../Content/Images/slider/slider.jpg');
+	background-repeat: none;
+	background-size: cover;
+}
+
+.pug {
+	background-image: url('../Content/Images/Pugs/pug_family.jpg');
+	background-repeat: none;
+	background-size: cover;
+}
+
+.fitness {
+	background-image: url('../Content/Images/timer/timer.jpg');
+	background-repeat: none;
+	background-size: cover;
+}
