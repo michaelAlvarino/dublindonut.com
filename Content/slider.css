@@ -17,21 +17,39 @@
 	color: black;
 }
 
+h2 {
+	font-weight: bold;
+	font-size: 75px;
+}
+
+.slider {
+	height: 400px;
+	position: relative;
+	width: 100%;
+}
+
 .slide {
-	height: 600px;
 	display: none;
 	height: 100%;
 	width: 100%;
-	top: 0;
-	left: 0;
+	position: absolute;
 }
 
 .active-slide {
 	display:inline;
+	height: 500px;
 }
 
 .slider-nav {
 	text-align: center;
+	font-family: webdings;
+	font-size: 50px;
+	margin-top: 100px;
+}
+
+.slider-nav :hover {
+	text-decoration: none;
+	color: darkblue;
 }
 
 .music {
@@ -48,6 +66,12 @@
 
 .fitness {
 	background-image: url('../Content/Images/timer/timer.jpg');
+	background-repeat: none;
+	background-size: cover;
+}
+
+.reading {
+	background-image: url('../Content/Images/slider/reading.jpg');
 	background-repeat: none;
 	background-size: cover;
 }

@@ -14,7 +14,6 @@ $(document).ready(function(){
 		currentSlide.fadeOut(500).removeClass('active-slide');
 		nextSlide.fadeIn(500).addClass('active-slide');
 	
-
 	});
 
 	$('.prevSlide').on('click',function(){
@@ -29,6 +28,7 @@ $(document).ready(function(){
 
 		currentSlide.fadeOut(500).removeClass('active-slide');
 		prevSlide.fadeIn(500).addClass('active-slide');
+
 
 	})
 
