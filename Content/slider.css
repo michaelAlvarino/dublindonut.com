@@ -54,24 +54,26 @@ h2 {
 
 .music {
 	background-image: url('../Content/Images/slider/slider.jpg');
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .pug {
 	background-image: url('../Content/Images/Pugs/pug_family.jpg');
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .fitness {
 	background-image: url('../Content/Images/timer/timer.jpg');
-	background-repeat: none;
-	background-size: cover;
+	background-repeat: no-repeat;
+	/*background-size: cover;*/
+	height: 500px;
 }
 
 .reading {
 	background-image: url('../Content/Images/slider/reading.jpg');
-	background-repeat: none;
-	background-size: cover;
+	background-repeat: no-repeat;
+	/*background-size: cover;*/
+	height: 500px;
 }
