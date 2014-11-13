@@ -23,7 +23,7 @@ h2 {
 }
 
 .slider {
-	height: 400px;
+	height: 500px;
 	position: relative;
 	width: 100%;
 }
@@ -37,14 +37,14 @@ h2 {
 
 .active-slide {
 	display:inline;
-	height: 500px;
 }
 
 .slider-nav {
 	text-align: center;
 	font-family: webdings;
 	font-size: 50px;
-	margin-top: 100px;
+	display: inline-block;
+	width: 100%;
 }
 
 .slider-nav :hover {
@@ -56,24 +56,48 @@ h2 {
 	background-image: url('../Content/Images/slider/slider.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+	background-color: lightpink;
 }
 
 .pug {
 	background-image: url('../Content/Images/Pugs/pug_family.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+	background-color: lightblue;
 }
 
 .fitness {
 	background-image: url('../Content/Images/timer/timer.jpg');
 	background-repeat: no-repeat;
 	/*background-size: cover;*/
-	height: 500px;
+	background-position: center;
+	background-color: lightgray;
 }
 
 .reading {
 	background-image: url('../Content/Images/slider/reading.jpg');
 	background-repeat: no-repeat;
 	/*background-size: cover;*/
-	height: 500px;
+	background-position: center;
+	background-color: lightgreen;
+
+}
+
+.dot {
+	display: inline-block;
+	color: black;
+	padding: 0px;
+}
+
+.active-dot{
+	color: gray;
+}
+
+.dots {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px;
 }
