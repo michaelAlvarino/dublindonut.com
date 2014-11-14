@@ -27,7 +27,7 @@ $(document).ready(function() {
 		run = true;
 
 		//Some retarded testing thing I was doing when I got frustrated...
-		$('.test').text("Start lol");
+		//$('.test').text("Start lol");
 
 		count();
 	});
@@ -37,7 +37,7 @@ $(document).ready(function() {
 	$('.stop').on('click', function(){
 		run = false;
 		//Some retarded testing thing I was doing when I got frustrated...
-		$('.test').text("Stop heuheuheuhe");
+		//$('.test').text("Stop heuheuheuhe");
 	});
 
 	//CLICK EVENT
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 		//Reset progress text
 		$('.progress-text').text("Progress");
-		$('.test').text("Reset :(");
+		//$('.test').text("Reset :(");
 
 		//Reset progress bar
 		$('.progress-bar').css('width',0+"%");
@@ -77,10 +77,13 @@ $(document).ready(function() {
 	//Round input
 	$('.ok').on('click', function(){
 		rounds = $("#rounds").val();
-		work = $("#work").val();
-		rest = $("#rest").val();
+		work = parseInt($("#work").val());
+		rest = parseInt($("#rest").val());
 
-		totalTime = (work + rest) / rounds;
+		//totalTime = (work + rest) / rounds;
+		something = work + rest;
+		totalTime = something * rounds;
+		//$('.test').text(totalTime)
 
 		if((rounds == "") || (work == "") || (rest == "")) {
 			$('.test-2').text("Please fill in all the values... dickhole");			
@@ -160,24 +163,25 @@ $(document).ready(function() {
 		if(currentRound-1 == rounds){
 			run = false;
 			currentRound--;
-			$('.test').text("Nice job! It's over!");
+			//$('.test').text("Nice job! It's over!");
 			$('.current-status').text("DONE!!! Lu is so proud of you!!!");
 			$('.current-status').css('color',"lightblue");
 		}
 
 		//increment totalTimeCounter for progress bar
 		//Not working
-		//totalTimeCounter++;
-		//var percent = totalTimeCounter / totalTime;
+		totalTimeCounter++;
+		var percent = totalTimeCounter / totalTime * 100;
 		
 		//Progress bar percentage
-		var percent = 100*currentRound / rounds;
-		
+		//var percent = 100*currentRound / rounds;
+	
 		//UPDATE round text
 		$('.progress-text').text("Progress: " + currentRound + " / " + rounds);
 
 		//UPDATE progress bar
 		$('.progress-bar').css('width',percent+"%");
 		$('.progress-bar').text(percent + "%");
+
 	}
 });
