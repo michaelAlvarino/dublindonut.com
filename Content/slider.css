@@ -17,13 +17,22 @@
 	color: black;
 }
 
+h2 {
+	font-weight: bold;
+	font-size: 75px;
+}
+
+.slider {
+	height: 500px;
+	position: relative;
+	width: 100%;
+}
+
 .slide {
-	height: 600px;
 	display: none;
 	height: 100%;
 	width: 100%;
-	top: 0;
-	left: 0;
+	position: absolute;
 }
 
 .active-slide {
@@ -32,22 +41,63 @@
 
 .slider-nav {
 	text-align: center;
+	font-family: webdings;
+	font-size: 50px;
+	display: inline-block;
+	width: 100%;
+}
+
+.slider-nav :hover {
+	text-decoration: none;
+	color: darkblue;
 }
 
 .music {
 	background-image: url('../Content/Images/slider/slider.jpg');
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+	background-color: lightpink;
 }
 
 .pug {
 	background-image: url('../Content/Images/Pugs/pug_family.jpg');
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+	background-color: lightblue;
 }
 
 .fitness {
 	background-image: url('../Content/Images/timer/timer.jpg');
-	background-repeat: none;
-	background-size: cover;
+	background-repeat: no-repeat;
+	/*background-size: cover;*/
+	background-position: center;
+	background-color: lightgray;
+}
+
+.reading {
+	background-image: url('../Content/Images/slider/reading.jpg');
+	background-repeat: no-repeat;
+	/*background-size: cover;*/
+	background-position: center;
+	background-color: lightgreen;
+
+}
+
+.dot {
+	display: inline-block;
+	color: black;
+	padding: 0px;
+}
+
+.active-dot{
+	color: gray;
+}
+
+.dots {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px;
 }
