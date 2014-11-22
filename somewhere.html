@@ -1,26 +1,38 @@
 <!DOCTYPE HTML>
+<html>
 <head>
-<title>Somewhere</title>
-<script type="text/javascript" src="Scripts/jquery-1.11.1.min.js"></script>
-<script>
-var x = document.getElementById("demo");
+	<title>Somewhere</title>
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+	<link rel="stylesheet" href="Content/bootstrap.css">
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;	
-}
-</script>
+	<style>
+		.main {
+			text-align: center;
+		}
+
+		#map-canvas {
+			margin-left: auto;
+			margin-right: auto;
+			height: 400px;
+			width: 600px;
+		}
+	</style>
+
+	<script type="text/javascript" src="Scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTzuv6EWgY_O9U-1q-bLEpJ-3jbx75GMw"></script>
+	<script type="text/javascript" src="Scripts/somewhere.js"></script>
+
 </head>
 
 <body>
-<button onclick="getLocation()">hmm</button>
-<p id="demo"></p>
+
+	<div class="main">
+		<button class="woah" onclick="getLocation()">What does this do?</button>
+		<p class="demo"></p>
+		<p class="test"></p>
+		<div id="map-canvas"></div>
+	</div>
+
 </body>
+
 </html>
