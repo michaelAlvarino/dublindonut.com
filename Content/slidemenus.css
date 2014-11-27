@@ -1,9 +1,9 @@
-nav {
+body {
     position:fixed;
     top:50%;
     left:50%;
 }
-nav ul {
+ul {
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 1px 0 #FFF;
     background: #FFF;
@@ -12,14 +12,14 @@ nav ul {
     padding: 0;
     width: 100%;
 }
-nav li {
+li {
     float: left;
     margin: 0;
     padding: 0;
     position: relative;
     width: 100%;
 }
-nav a {
+a {
     background: #FFF;
     color: #444;
     display: block;
@@ -33,10 +33,11 @@ nav a {
          -o-transition: all .25s ease;
             transition: all .25s ease;
 }
-nav li:hover a {
+li:hover a {
     background: #ccc;
+    text-decoration: none;
 }
-nav li ul {
+li ul {
     float: left;
     left: 0;
     opacity: 0;
@@ -50,9 +51,10 @@ nav li ul {
          -o-transition: all .55s ease;
             transition: all .55s ease;
 }
-nav li:hover ul {
+li:hover ul {
     opacity: 1;
     top: 50px;
     visibility: visible;
     margin-top:-270%;
+    left: 50%;
 }
