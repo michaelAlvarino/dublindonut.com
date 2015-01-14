@@ -54,13 +54,8 @@
 }
 
 .links a{
-	color: white;
+
 	padding-right: 50px;
 	padding-left: 50px;
-	/*text-shadow: black 0em 0em .1em;*/
-}
-
-.links a:hover{
-	color: #d3d3d3;
 	/*text-shadow: black 0em 0em .1em;*/
 }
