@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+var sittingCount = 	0;
+var standingCount = 0;
+var standing = 		false;
+var calDifference = 0.0058;
+var calStanding = 	0.0275;
+var calSitting = 	0.0217;
+
+function stand(){
+	$('#standing').attr('class','btn btn-success');
+	$('#sitting').attr('class','btn btn-default');
+	$('.test').text(" ")
+	standing = true;
+	standingCounter();
+}
+
+function sit(){
+	$('#sitting').attr('class','btn btn-success');
+	$('#standing').attr('class','btn btn-default');
+	standing = false;
+	sittingCounter();
+}
+
+function sittingCounter(){
+	setTimeout(function(){
+		if(!standing){
+			sittingCount += 1;
+			$('.coulda').text('You could have burned ' + (sittingCount*calDifference).toFixed(2) + ' more calories standing.');
+			$('.current').text("You have been sitting for" + formatTime(sittingCount)+".");
+			$('.test').css('font-size',(0.01*sittingCount)+'px');
+			$('.test').text("Take a break! Stand up!");
+			sittingCounter();
+		}
+	},1000);
+}
+
+function standingCounter(){
+	setTimeout(function(){
+		if(standing){
+			standingCount += 1;
+			$('.current').text("You have been standing for " + formatTime(standingCount) + ".");
+			$('.coulda').text('You have burned ' + (standingCount*calStanding).toFixed(2) + " calories. That's " + (standingCount*calDifference).toFixed(2) + " more than if you were sitting.");
+			standingCounter();
+		}
+	},1000);
+}
+function formatTime(time){
+
+	if(time < 60){
+		return " " + time + " seconds";
+	}
+	else if(time >= 60 && time < 3600 ){
+		return " " + Math.floor(time/60) + " minute(s) and " + (time%60).toFixed(0) +" seconds";
+	}
+	else {
+		return " " + Math.floor(time/3600) + " hour(s) and " + Math.floor((time/3600)%60) + " minute(s)";
+	}
+} 
+
+
+function main(){
+	$('#standing').on('click',stand);
+	$('#sitting').on('click',sit);
+	$('.standing-information').attr('href',(Math.random()>0.5?"http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/)":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+}
+
+$(document).ready(main);
+
+</script>
+
+<body>
+	<div class="container">
+		<h1>Sitting Disease Tracker</h1>
+		<p class="info">The sitting disease tracker tracks how much time you spend standing or sitting in front of the computer. For more information on why should stand instead of sit, click <a href="#" class="standing-information">here</a>.</p>
+		<div class="well">
+			<p>Are you standing or sitting?</p>
+			<button class="btn btn-default" id="standing">Standing</button>
+			<button class="btn btn-default" id="sitting">Sitting</button>
+		</div>
+		<h2 class="current"></h2>
+		<h2 class="coulda"></h2>
+		<p class="test"></p>
+	</div>
+</body>
