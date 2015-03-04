@@ -1,3 +1,4 @@
+<title>Sitting Disease Tracker</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -49,15 +50,19 @@ function standingCounter(){
 	},1000);
 }
 function formatTime(time){
+	var hours =   floor(time/3600);
+	var minutes = floor((time/3600)/60);
+	var seconds = ceil(((time%3600)/60)%60);
+
 
 	if(time < 60){
-		return " " + time + " seconds";
+		return " " + (seconds == 1 ? " second" : " seconds");
 	}
 	else if(time >= 60 && time < 3600 ){
-		return " " + Math.floor(time/60) + " minute(s) and " + (time%60).toFixed(0) +" seconds";
+		return " " + minutes + (minutes == 1 ? " minute" : " minutes") + " and " + seconds + (seconds == 1 ? " second" : " seconds");
 	}
 	else {
-		return " " + Math.floor(time/3600) + " hour(s) and " + Math.floor((time/3600)%60) + " minute(s)";
+		" " + hours + (hours == 1 ? " hour" : " hours") + " and " + minutes + (minutes == 1 ? " minute" : " minutes");
 	}
 } 
 
@@ -65,7 +70,7 @@ function formatTime(time){
 function main(){
 	$('#standing').on('click',stand);
 	$('#sitting').on('click',sit);
-	$('.standing-information').attr('href',(Math.random()>0.5?"http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/)":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+	$('.standing-information').attr('href',(Math.random()>0.5?"http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
 }
 
 $(document).ready(main);
