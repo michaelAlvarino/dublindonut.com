@@ -1,76 +1,153 @@
 <title>Sitting Disease Tracker</title>
+<!-- Bootstrap Stylesheet -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Custom Sitting Disease Stylesheet -->
+<link rel="stylesheet" href="Content/sittingdisease.css">
+<!-- JQuery.js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Bootstrap.js -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script>
-var sittingCount = 	0;
-var standingCount = 0;
-var standing = 		false;
-var calDifference = 0.0058;
-var calStanding = 	0.0275;
-var calSitting = 	0.0217;
+//Total sitting time. Time in seconds.
+var sittingCount = 			0;
+//Total standing time. Time in seconds.
+var standingCount = 		0;
+//Is user standing?
+var standing = 				false;
+//Calories burned / Second Standing
+var calStanding = 			0.0275;
+//Calories burned / Second Sitting
+var calSitting = 			0.0217;
+//Calorie burn rate difference between standing and sitting
+var calDifference = 		0.0058;
+//Session sitting time
+var currentSittingCount = 	0;
+//Sessiong standing time
+var currentStandingCount =	0;
+//Calorie counter
+var calorieCount =			0;
 
+//User is standing
 function stand(){
+
+	//Change button status
 	$('#standing').attr('class','btn btn-success');
 	$('#sitting').attr('class','btn btn-default');
-	$('.test').text(" ")
+
+	//Something
+	$('.break').text(" ")
+
+	//Change standing status to true
 	standing = true;
+
+	//Reset standing session count
+	currentStandingCount = 0;
+
+	//Beging standing counter
 	standingCounter();
+
 }
 
+//User is standing
 function sit(){
+
+	//Change button status
 	$('#sitting').attr('class','btn btn-success');
 	$('#standing').attr('class','btn btn-default');
+
+	//Change standing status to false
 	standing = false;
+
+	//Reset sitting session count
+	currentSittingCount = 0;
+
+	//Begin sitting counter
 	sittingCounter();
+
 }
 
+//Count time sitting
 function sittingCounter(){
+
+	//Repeat every 1000 ms
 	setTimeout(function(){
+
+		//If user is sitting, count
 		if(!standing){
+
+			//Count time sitting (overall)
 			sittingCount += 1;
-			$('.coulda').text('You could have burned ' + (sittingCount*calDifference).toFixed(2) + ' more calories standing.');
-			$('.current').text("You have been sitting for" + formatTime(sittingCount)+".");
-			$('.test').css('font-size',(0.01*sittingCount)+'px');
-			$('.test').text("Take a break! Stand up!");
+			//Count time sitting (current session)
+			currentSittingCount += 1;
+
+			//Update sitting count and calorie count
+			$('.session').text("You have been sitting for " + formatTime(currentSittingCount)+" this session and burned only " + (currentSittingCount*calSitting).toFixed(2) + " calories. That's "+ (currentSittingCount*calDifference).toFixed(2) + " less than standing.");
+			$('.total').text("In total, you've burned " + ((sittingCount*calSitting)+(standingCount*calStanding)).toFixed(2) + " calories and stood " + ((standingCount/(sittingCount+standingCount))*100).toFixed(0) + "% of the time.");
+
+			//Standing break reminder
+			$('.break').css('font-size',(0.01*currentSittingCount)+'px');
+			$('.break').text("Take a break! Stand up!");
+
+			//Iterate
 			sittingCounter();
 		}
 	},1000);
+
 }
 
+//Count time standing
 function standingCounter(){
+
+	//Repeat every 1000 ms
 	setTimeout(function(){
+
+		//If user is standing, count
 		if(standing){
+
+			//Count time standing
 			standingCount += 1;
-			$('.current').text("You have been standing for " + formatTime(standingCount) + ".");
-			$('.coulda').text('You have burned ' + (standingCount*calStanding).toFixed(2) + " calories. That's " + (standingCount*calDifference).toFixed(2) + " more than if you were sitting.");
+			currentStandingCount += 1;
+
+			//Update standing count and calorie count
+			$('.session').text("You have been standing for " + formatTime(currentStandingCount) + " this session and burned " + (currentStandingCount*calStanding).toFixed(2) + " calories. That's " + (currentStandingCount*calDifference).toFixed(2) + " more than sitting.");
+			$('.total').text("In total, you've burned " + ((sittingCount*calSitting)+(standingCount*calStanding)).toFixed(2) + " calories and stood " + ((standingCount/(sittingCount+standingCount))*100).toFixed(0) + "% of the time.");
+
+			//Iterate
 			standingCounter();
 		}
 	},1000);
+
 }
+
+//Format time from seconds to hours, minutes, and seconds
 function formatTime(time){
-	var hours =   floor(time/3600);
-	var minutes = floor((time/3600)/60);
-	var seconds = ceil(((time%3600)/60)%60);
 
+	var hours =   Math.floor(time/3600);
+	var minutes = Math.floor((time%3600)/60);
+	var seconds = Math.ceil(((time%3600)%60)%60);
 
+	//Return time
 	if(time < 60){
-		return " " + (seconds == 1 ? " second" : " seconds");
+		return " " + seconds + (seconds == 1 ? " second" : " seconds");
 	}
 	else if(time >= 60 && time < 3600 ){
 		return " " + minutes + (minutes == 1 ? " minute" : " minutes") + " and " + seconds + (seconds == 1 ? " second" : " seconds");
 	}
 	else {
-		" " + hours + (hours == 1 ? " hour" : " hours") + " and " + minutes + (minutes == 1 ? " minute" : " minutes");
+		return " " + hours + (hours == 1 ? " hour" : " hours") + " and " + minutes + (minutes == 1 ? " minute" : " minutes");
 	}
-} 
 
+}
 
+//Initialize app
 function main(){
+
 	$('#standing').on('click',stand);
 	$('#sitting').on('click',sit);
-	$('.standing-information').attr('href',(Math.random()>0.5?"http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+	//50% chance of rick roll
+	$('.standing-information').attr('href',(Math.random()>0.5 ? "http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+
 }
 
 $(document).ready(main);
@@ -78,6 +155,17 @@ $(document).ready(main);
 </script>
 
 <body>
+	<div class="nav">
+		<div class="container">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="web-project.html">Web Project</a></li>
+				<li><a href="http://dublindonut.tumblr.com">Blog</a></li>
+				<li><a href="http://dublindonut.tumblr.com/aboutus">About Us</a></li>
+			</ul>	
+		</div>
+	</div>
+
 	<div class="container">
 		<h1>Sitting Disease Tracker</h1>
 		<p class="info">The sitting disease tracker tracks how much time you spend standing or sitting in front of the computer. For more information on why should stand instead of sit, click <a href="#" class="standing-information">here</a>.</p>
@@ -86,8 +174,8 @@ $(document).ready(main);
 			<button class="btn btn-default" id="standing">Standing</button>
 			<button class="btn btn-default" id="sitting">Sitting</button>
 		</div>
-		<h2 class="current"></h2>
-		<h2 class="coulda"></h2>
-		<p class="test"></p>
+		<h2 class="session"></h2>
+		<h2 class="total"></h2>
+		<p class="break"></p>
 	</div>
 </body>
