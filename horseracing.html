@@ -1,72 +1,90 @@
+<title>Horse Racing</title>
+<!-- Bootstrap Stylesheet -->
+<link rel="stylesheet" href="Content/bootstrap.css">
+<!-- JQuery Library -->
+<script src="Scripts/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap.js -->
+<script src="Scripts/bootstrap.min.js"></script>
+
 <style>
 	.race {
-		left: auto;
-		right: auto;
-		width: 80%;
-		display: inline-block;
-	}
-	.lane{
-		left: auto;
-		right: auto;
-		padding: 10px;
-		width: 80%;
 		text-align: center;
 	}
-
-	.increment {
-		height: 5px;
-		width: 1px;
-		border: 1px solid black;
-		float: left;
+	.lane{
+		padding: 10px;
+		text-align: center;
 	}
-
-	.clearStuff {
-		float: none;
+	.increment {
+		height: 10px;
+		width: 10px;
+		/*border: 1px solid black;*/
+		display: inline-block;
+	}
+	.horse-1 {
+		background-color: lightblue;
+	}
+	.horse-2{
+		background-color: lightgreen;
+	}
+	.horse-3{
+		background-color: lightpink;
+	}
+	.horse-4{
+		background-color: purple;
+	}
+	.marker {
+		background-color: black;
 	}
 </style>
 
 <script>
+	h1 = 0;
+	h2 = 0;
+	h3 = 0;
+	h4 = 0;
+
+	function moveHorse( horse ) {
+		var currentPlacement = $('.'+ horse);
+		var nextPlacement = currentPlacement.next();
+
+		if (nextPlacement.length != 0){
+			currentPlacement.removeClass(horse);
+			nextPlacement.addClass(horse);
+		}
+		else if (nextPlacement.next().length === 0) {
+			$('.placement').append(horse + " finished!");
+		}
+	}
+
+	function progress(){
+		if (Math.random() > Math.random()){
+			moveHorse("horse-1");
+		}
+		if (Math.random() > Math.random()){
+			moveHorse("horse-2");
+		}
+		if (Math.random() > Math.random()){
+			moveHorse("horse-3");
+		}
+		if (Math.random() > Math.random()){
+			moveHorse("horse-4");
+		}
+	}
+
+	function main() {
+		var i = 1;
+		$('.start-button').on('click', function() {
+			progress()
+		});
+	}
+	$(document).ready(main);
+
 </script>
 
 
 <div class="race">
-	<div class="lane" id="1">
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+	<div class="lane">
+		<div class="increment horse-1"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
@@ -82,43 +100,8 @@
 		<div class="increment"></div>
 		<div class="increment"></div>
 	</div>
-	<div class="lane" id="2">
-	<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+	<div class="lane lane-2">
+		<div class="increment horse-2"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
@@ -134,43 +117,8 @@
 		<div class="increment"></div>
 		<div class="increment"></div>
 	</div>
-	<div class="lane" id="3">
-	<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+	<div class="lane lane-3">
+		<div class="increment horse-3"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
@@ -186,8 +134,8 @@
 		<div class="increment"></div>
 		<div class="increment"></div>
 	</div>
-	<div class="lane" id="4">
-	<div class="increment"></div>
+	<div class="lane lane-4">
+		<div class="increment horse-4"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
@@ -202,6 +150,9 @@
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
+	</div>
+	<div class="lane">
+		<div class="increment marker"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
@@ -215,28 +166,13 @@
 		<div class="increment"></div>
 		<div class="increment"></div>
 		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+		<div class="increment marker"></div>
+	</div>
+	<div class="controls">
+	<button class="btn btn-default start-button">Start</button>
+	</div>
+	<h1 class="test"></h1>
+	<div class="placement">
 	</div>
 
 
