@@ -32,49 +32,100 @@
 	.horse-4{
 		background-color: purple;
 	}
+	.horse-1-completed {
+		background-color: #e4fef7;
+	}
+	.horse-2-completed {
+		background-color: #ecffe2;
+	}
+	.horse-3-completed {
+		background-color: #fff1fa;
+	}
+	.horse-4-completed {
+		background-color: #ccccff;
+	}
 	.marker {
 		background-color: black;
+	}
+	.track {
+		background-color: lightgray;
+	}
+	.placement {
+		font-size: 25px;
 	}
 </style>
 
 <script>
+	// Counter for each horse
 	h1 = 0;
 	h2 = 0;
 	h3 = 0;
 	h4 = 0;
 
+	// Move all horses
+	function progress() {
+		// Horse 1
+		if(Math.random() > Math.random() && h1 < 14){
+			moveHorse('horse-1');
+			h1++;
+			if (h1 == 14) {
+				$('.placement').append("<li>Horse 1</li>");
+			}
+		}
+		// Horse 2
+		if(Math.random() > Math.random() && h2 < 14){
+			moveHorse('horse-2');
+			h2++;
+			if (h2 == 14) {
+				$('.placement').append("<li>Horse 2</li>");
+			}
+		}
+		// Horse 3
+		if(Math.random() > Math.random() && h3 < 14){
+			moveHorse('horse-3');
+			h3++;
+			if (h3 == 14) {
+				$('.placement').append("<li>Horse 3</li>");
+			}
+		}
+		// Horse 4
+		if(Math.random() > Math.random() && h4 < 14){
+			moveHorse('horse-4');
+			h4++;
+			if (h4 == 14) {
+				$('.placement').append("<li>Horse 4</li>");
+			}
+		}
+	}
+
+	// Move an individual horse
 	function moveHorse( horse ) {
+
 		var currentPlacement = $('.'+ horse);
 		var nextPlacement = currentPlacement.next();
 
 		if (nextPlacement.length != 0){
 			currentPlacement.removeClass(horse);
+			currentPlacement.addClass(horse+"-completed");
 			nextPlacement.addClass(horse);
 		}
-		else if (nextPlacement.next().length === 0) {
-			$('.placement').append(horse + " finished!");
-		}
+
 	}
 
-	function progress(){
-		if (Math.random() > Math.random()){
-			moveHorse("horse-1");
-		}
-		if (Math.random() > Math.random()){
-			moveHorse("horse-2");
-		}
-		if (Math.random() > Math.random()){
-			moveHorse("horse-3");
-		}
-		if (Math.random() > Math.random()){
-			moveHorse("horse-4");
-		}
+	function game() {
+		setTimeout(function(){
+			if ((h1 + h2 + h3 + h4) <= 56) {
+				progress();
+				game();
+			}
+		},300);
 	}
 
+	//Initializing function
 	function main() {
 		var i = 1;
 		$('.start-button').on('click', function() {
-			progress()
+			game();
 		});
 	}
 	$(document).ready(main);
@@ -153,28 +204,27 @@
 	</div>
 	<div class="lane">
 		<div class="increment marker"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
+		<div class="increment track"></div>
 		<div class="increment marker"></div>
 	</div>
 	<div class="controls">
-	<button class="btn btn-default start-button">Start</button>
+		<button class="btn btn-default start-button">Start</button>
 	</div>
-	<h1 class="test"></h1>
-	<div class="placement">
-	</div>
-
+	<h2 class="results">Results</h2>
+	<ol class="placement">
+	</ol>
 
 </div>
 
