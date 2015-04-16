@@ -7,6 +7,24 @@
 <script src="Scripts/bootstrap.min.js"></script>
 
 <style>
+	.nav ul {
+		text-transform: uppercase;
+		font-family: Helvetica;
+		font-weight: bold;
+		color: gray;
+		font-size: 12px;
+		padding: 0px;
+	}
+
+	.nav li {
+		display: inline;
+		padding: 10px;
+		color: gray;
+	}
+
+	.nav a {
+		color: black;
+	}
 	.race {
 		text-align: center;
 	}
@@ -52,6 +70,21 @@
 	}
 	.placement {
 		font-size: 25px;
+	}
+	.horseracing {
+		background-image: url("Content/Images/horseracing/horseracing.jpg");
+		background-size: cover;
+		height: 500px;
+		background-attachment: fixed;
+	}
+	.jumbotron h1 {
+		font-color: white;
+		font-weight: bolder;
+		font-size: 100px;
+	}
+
+	.horseracingh1 {
+		font-color: white;
 	}
 </style>
 
@@ -132,99 +165,116 @@
 
 </script>
 
+<html>
+	<div class="nav">
+		<div class="container">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="web-project.html">Web Project</a></li>
+				<li><a href="http://blog.dublindonut.com">Blog</a></li>
+				<li><a href="http://blog.dublindonut.com/aboutus">About Us</a></li>
+			</ul>	
+		</div>
+	</div>
 
-<div class="race">
-	<div class="lane">
-		<div class="increment horse-1"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
+	<div class="jumbotron horseracing">
+		<h1>HORSE RACING!!!</h1>
+		<p>Ultimate excitement and fun</p>
 	</div>
-	<div class="lane lane-2">
-		<div class="increment horse-2"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-	</div>
-	<div class="lane lane-3">
-		<div class="increment horse-3"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-	</div>
-	<div class="lane lane-4">
-		<div class="increment horse-4"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-		<div class="increment"></div>
-	</div>
-	<div class="lane">
-		<div class="increment marker"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment track"></div>
-		<div class="increment marker"></div>
-	</div>
-	<div class="controls">
-		<button class="btn btn-default start-button">Start</button>
-	</div>
-	<h2 class="results">Results</h2>
-	<ol class="placement">
-	</ol>
 
-</div>
+	<div class="race">
+		<div class="lane">
+			<div class="increment horse-1"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+		</div>
+		<div class="lane lane-2">
+			<div class="increment horse-2"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+		</div>
+		<div class="lane lane-3">
+			<div class="increment horse-3"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+		</div>
+		<div class="lane lane-4">
+			<div class="increment horse-4"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+			<div class="increment"></div>
+		</div>
+		<div class="lane">
+			<div class="increment marker"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment track"></div>
+			<div class="increment marker"></div>
+		</div>
+		<div class="controls">
+			<button class="btn btn-default start-button">Start</button>
+		</div>
+		<h2 class="results">Results</h2>
+		<ol class="placement">
+		</ol>
+
+	</div>
+</html>
 
