@@ -1,4 +1,5 @@
 <title>Horse Racing</title>
+
 <!-- Bootstrap Stylesheet -->
 <link rel="stylesheet" href="Content/bootstrap.css">
 <!-- JQuery Library -->
@@ -7,6 +8,7 @@
 <script src="Scripts/bootstrap.min.js"></script>
 
 <style>
+	/* Navigation bar*/
 	.nav ul {
 		text-transform: uppercase;
 		font-family: Helvetica;
@@ -21,10 +23,11 @@
 		padding: 10px;
 		color: gray;
 	}
-
 	.nav a {
 		color: black;
 	}
+	
+	/* Horse race */
 	.race {
 		text-align: center;
 	}
@@ -35,9 +38,16 @@
 	.increment {
 		height: 10px;
 		width: 10px;
-		/*border: 1px solid black;*/
 		display: inline-block;
 	}
+	.marker {
+		background-color: black;
+	}
+	.track {
+		background-color: lightgray;
+	}
+
+	/* Horses */
 	.horse-1 {
 		background-color: lightblue;
 	}
@@ -62,17 +72,11 @@
 	.horse-4-completed {
 		background-color: #ccccff;
 	}
-	.marker {
-		background-color: black;
-	}
-	.track {
-		background-color: lightgray;
-	}
-	.placement {
-		font-size: 25px;
-	}
+
+	/* Jumbotron */
 	.horseracing {
-		background-image: url("Content/Images/horseracing/horseracing.jpg");
+		background-image: url("Content/Images/horseracing/horseracing-2.jpg");
+		background-repeat: no-repeat;
 		background-size: cover;
 		height: 500px;
 		background-attachment: fixed;
@@ -82,57 +86,111 @@
 		font-weight: bolder;
 		font-size: 100px;
 	}
-
 	.horseracingh1 {
 		font-color: white;
+	}
+
+	/* Controls */
+	.controls {
+		text-align: center;
+	}
+
+	/* Results / Placing */
+	.results {
+		/*display: none;*/
+		text-align: center;
+		height: 200px;
+	}
+	.placement {
+		font-size: 25px;
+		text-align: center;
+		list-style-position: inside;
+		padding: 0px;
+	}
+	.results-header {
+		display: none;
+	}
+	.horse-1-results {
+		color: lightblue;
+		background-color: #e4fef7;
+	}
+	.horse-2-results {
+		color: lightgreen;
+		background-color: #ecffe2;
+	}
+	.horse-3-results {
+		color: lightpink;
+		background-color: #fff1fa;
+	}
+	.horse-4-results {
+		color: purple;
+		background-color: #ccccff;
+	}
+	.results-header a {
+		color: black;
+		text-decoration: none;
+	}
+	.results-header a:hover {
+		text-decoration: none;
+		color: black;
 	}
 </style>
 
 <script>
 	// Counter for each horse
-	h1 = 0;
-	h2 = 0;
-	h3 = 0;
-	h4 = 0;
+	var h1 = 0;
+	var h2 = 0;
+	var h3 = 0;
+	var h4 = 0;
+
+	// Reset counter
+	var resetCounter = 0;
+
+	//
+	var running = false;
 
 	// Move all horses
 	function progress() {
 		// Horse 1
 		if(Math.random() > Math.random() && h1 < 14){
-			moveHorse('horse-1');
+			moveHorseForward('horse-1');
 			h1++;
 			if (h1 == 14) {
-				$('.placement').append("<li>Horse 1</li>");
+				$('.results-header').show()
+				$('.placement').append("<li class='horse-1-results'>Horse 1</li>");
 			}
 		}
 		// Horse 2
 		if(Math.random() > Math.random() && h2 < 14){
-			moveHorse('horse-2');
+			moveHorseForward('horse-2');
 			h2++;
 			if (h2 == 14) {
-				$('.placement').append("<li>Horse 2</li>");
+				$('.results-header').show()
+				$('.placement').append("<li class='horse-2-results'>Horse 2</li>");
 			}
 		}
 		// Horse 3
 		if(Math.random() > Math.random() && h3 < 14){
-			moveHorse('horse-3');
+			moveHorseForward('horse-3');
 			h3++;
 			if (h3 == 14) {
-				$('.placement').append("<li>Horse 3</li>");
+				$('.results-header').show()
+				$('.placement').append("<li class='horse-3-results'>Horse 3</li>");
 			}
 		}
 		// Horse 4
 		if(Math.random() > Math.random() && h4 < 14){
-			moveHorse('horse-4');
+			moveHorseForward('horse-4');
 			h4++;
 			if (h4 == 14) {
-				$('.placement').append("<li>Horse 4</li>");
+				$('.results-header').show()
+				$('.placement').append("<li class='horse-4-results'>Horse 4</li>");
 			}
 		}
 	}
 
-	// Move an individual horse
-	function moveHorse( horse ) {
+	// Move an individual horse forwards
+	function moveHorseForward( horse ) {
 
 		var currentPlacement = $('.'+ horse);
 		var nextPlacement = currentPlacement.next();
@@ -145,24 +203,65 @@
 
 	}
 
+	// Move an individual horse backwards
+	function moveHorseBackward( horse ) {
+		var currentPlacement = $('.'+ horse);
+		var prevPlacement = currentPlacement.prev();
+
+		if (prevPlacement.length != 0){
+			currentPlacement.removeClass(horse);
+			prevPlacement.addClass(horse);
+			prevPlacement.removeClass(horse+"-completed");
+		}
+	}
+
+	// Run game
 	function game() {
 		setTimeout(function(){
-			if ((h1 + h2 + h3 + h4) <= 56) {
+			if ((h1 + h2 + h3 + h4) <= 56 && running) {
 				progress();
 				game();
 			}
-		},300);
+		},50);
+	}
+
+	// Move all horses back to the starting position
+	function regress() {
+		setTimeout( function() {
+			moveHorseBackward("horse-1")
+			moveHorseBackward("horse-2")
+			moveHorseBackward("horse-3")
+			moveHorseBackward("horse-4")
+			resetCounter++;
+			if (resetCounter < 15) {
+				regress();
+			}
+		},50);
+	}
+
+	// Reset game
+	function resetRace() {
+		resetCounter = 0;
+		regress();
+
+		h1 = h2 = h3 = h4 = 0;
+		$('.placement').empty();
+		$('.results-header').hide();
+		running = false;
 	}
 
 	//Initializing function
 	function main() {
-		var i = 1;
 		$('.start-button').on('click', function() {
-			game();
+			running = true;
+			game()
+		});
+		$('.reset-button').on('click', function() {
+			resetRace()
 		});
 	}
-	$(document).ready(main);
 
+	$(document).ready(main);
 </script>
 
 <html>
@@ -268,13 +367,16 @@
 			<div class="increment track"></div>
 			<div class="increment marker"></div>
 		</div>
+	</div>
+	<div class="container">
 		<div class="controls">
 			<button class="btn btn-default start-button">Start</button>
+			<button class="btn btn-default reset-button">Reset</button>
 		</div>
-		<h2 class="results">Results</h2>
-		<ol class="placement">
-		</ol>
-
+		<div class="results">
+			<h2 class="results-header"><a href="horseracingrules.html" target="_blank">Results</a></h2>
+			<ol class="placement">
+			</ol>
+		</div>
 	</div>
 </html>
-
