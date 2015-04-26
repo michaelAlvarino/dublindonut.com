@@ -1,0 +1,35 @@
+.jumbotron-weighliftingRatios {
+	/*background-image: url("/C:/Users/Walter/Pictures/Wallpapers/kim-holtermand-reflections-1920x1200.jpg");*/
+	background-image: url("Images/weightliftingRatios/laiohui.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 400px;
+	color: white;
+}
+.jumbotron a {
+	color: white;
+}
+.jumbotron a:hover {
+	text-decoration: none;
+}
+.jumbotron h1 {
+	font-size: 70px;
+	font-weight: bolder;
+}
+.tab-container {
+	padding: 10px;
+}
+
+.form-control {
+	width: 50%;
+}
+
+footer {
+	margin-top: 45px;
+	padding-top: 45px;
+}
+footer p {
+	color: lightgray;
+	font-style: italic;
+}

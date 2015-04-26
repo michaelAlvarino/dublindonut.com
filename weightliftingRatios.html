@@ -1,0 +1,204 @@
+<!doctype html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	
+	<!-- Icon -->
+	<link rel="icon" href="favicon.ico" type="image/ico">
+
+	<!-- Bootstrap Stylesheet -->
+	<link rel="stylesheet" href="Content/bootstrap.css">
+	<!-- Weightlifting Ratios Stylesheet -->
+	<link rel="stylesheet" href="Content/weightliftingRatios.css">
+
+	<!-- JQuery Library -->
+	<script src="Scripts/jquery-1.11.1.min.js"></script>
+	<!-- Bootstrap.js -->
+	<script src="Scripts/bootstrap.min.js"></script>
+	<!-- AngularJS -->
+	<script src="Scripts/angular.js"></script>
+	<!-- weightliftingRatios script -->
+	<script src="Scripts/weightliftingRatios.js"></script>
+	
+	<title>Weightlifting Ratios</title>
+</head>
+
+<body ng-app="weightliftingApp">
+	<div class="jumbotron jumbotron-weighliftingRatios">
+		<h1>Ultimate Weightlifting Calculator</h1>
+		<p><a href="https://www.youtube.com/watch?v=LaPsv12HFOQ" target="_blank">Liao Hui Approved</a></p>
+	</div>
+	<div class="container">
+		<ul class="nav nav-tabs" id="weightliftingTab">
+			<li class="active"><a href="#about" data-toggle="tab">About</a></li>
+			<li><a href="#inputs" data-toggle="tab">Inputs</a></li>
+			<li><a href="#ratios" data-toggle="tab">Ratios</a></li>
+			<li><a href="#priorities" data-toggle="tab">Priorities</a></li>
+			<li><a href="#resources" data-toggle="tab">Resources</a></li>
+		</ul>
+		<div id="weightliftingTab-content" class="tab-content">
+			<div class="tab-pane active" id="about">
+				<div class="container tab-container">
+					<h3>Ultimate Weightlifting Calculator!</h3>
+						<p>To improve in anything you must target your weaknesses. A great way to identify weaknesses in weightlifting is to take a look at your lift ratios e.g. Front Squat / Clean and Jerk, Snatch / Back Squat, etc.</p>
+					<h3>Methodology</h3>
+						<p>The calculator first finds twenty different ratios based off of eleven movements: back squat, front squat, deadlift, strict press, push press, jerk, clean, power clean, clean and jerk, snatch, and power snatch. It then compares your current ratios to that of a target ratio collected from various weightlifting websites. The calculator then prioritizes the lifts by counting which lift is out of ratio most frequently -- the more the lift comes up, the higher the priority.</p>
+						<p>There is some bias in this as the ratio doesn't include each lift an equal amount of times.</p>
+					<h3>Instructions</h3>
+						<p>This calculator is designed to simplify the identification process. Simply type in your one rep max for all your lifts and the app will show you what to attack.<p>
+						<p>The weight can be entered in either kilograms or pounds. Just remember to be consistent with your entries.</p>
+						<p>Happy lifting!</p>
+					<h3>Shout Outs</h3>
+						<p>This web app is inspired by <a href="http://www.reddit.com/user/jsender321" target="_blank">/u/jsender321</a>'s reddit <a href="http://www.reddit.com/r/crossfit/comments/3383j3/what_is_your_front_squat_pr_as_a_percentage_of/cqifixe" target="_blank">comment</a> and <a href="https://docs.google.com/spreadsheets/d/1_Ijd3EA-QjZGEyym-iW66Mh1BgCSTW3jUB_6jtA6NYo/edit#gid=0" target="_blank">spreadsheet</a>. Thanks dude!</p>
+				</div>
+			</div>
+			<div class="tab-pane" id="inputs">
+				<div class="container tab-container">
+					<form>
+						<p>Back Squat</p>
+						<input type="number" min="0" ng-model="bs" class="form-control" placeholder="Enter 1RM back squat">
+						<br>
+
+						<p>Front Squat</p>
+						<input type="number" min="0" ng-model="fs" class="form-control" placeholder="Enter 1RM front squat">
+						<br>
+
+						<p>Deadlift</p>
+						<input type="number" min="0" ng-model="dl" class="form-control" placeholder="Enter 1RM deadlift / clean pull">
+						<br>
+
+						<p>Strict Press</p>
+						<input type="number" min="0" ng-model="ohp" class="form-control" placeholder="Enter 1RM strict press / ohp">
+						<br>
+
+						<p>Push Press</p>
+						<input type="number" min="0" ng-model="pp" class="form-control" placeholder="Enter 1RM push press">
+						<br>
+
+						<p>Jerk</p>
+						<input type="number" min="0" ng-model="jerk" class="form-control" placeholder="Enter 1RM jerk">
+						<br>
+
+						<p>Clean</p>
+						<input type="number" min="0" ng-model="cln" class="form-control" placeholder="Enter 1RM clean">
+						<br>
+
+						<p>Power Clean</p>
+						<input type="number" min="0" ng-model="pc" class="form-control" placeholder="Enter 1RM power clean">
+						<br>
+
+						<p>Clean and Jerk</p>
+						<input type="number" min="0" ng-model="cnj" class="form-control" placeholder="Enter 1RM clean and jerk">
+						<br>
+
+						<p>Snatch</p>
+						<input type="number" min="0" ng-model="sn" class="form-control" placeholder="Enter 1RM snatch">
+						<br>
+
+						<p>Power Snatch</p>
+						<input type="number" min="0" ng-model="ps" class="form-control" placeholder="Enter 1RM power snatch">
+
+					</form>
+				</div>
+			</div>
+			<div ng-controller="weightliftingController" class="tab-pane" id="ratios">
+				<div class="container tab-container">
+
+					<h3>Snatch / Back Squat</h3>
+					<!-- <div class="alert-danger"> -->
+						<p>Target: 65 % | Current: {{ snbs() }}</p>
+					<!-- </div> -->
+
+					<h3>Snatch / Deadlift</h3>
+					<p>Target: 40 % | Current: {{ sndl() }}</p>
+
+					<h3>Snatch / Clean and Jerk</h3>
+					<p>Target: 81 % | Current: {{ sncnj() }}</p>
+
+					<h3>Back Squat / Clean and Jerk</h3>
+					<p>Target: 128 % | Current: {{ bscnj() }}</p>
+
+					<h3>Clean and Jerk / Deadlift</h3>
+					<p>Target: 55 % | Current: {{ cnjdl() }}</p>
+
+					<h3>Front Squat / Back Squat</h3>
+					<p>Target: 87 % | Current: {{ fsbs() }}</p>
+
+					<h3>Clean and Jerk / Front Squat</h3>
+					<p>Target: 85 % | Current: {{ cnjfs() }}</p>
+
+					<h3>Power Clean / Clean</h3>
+					<p>Target: 85 % | Current: {{ pccln() }}</p>
+
+					<h3>Power Snatch / Snatch</h3>
+					<p>Target: 85 % | Current: {{ pssn() }}</p>
+
+					<h3>Push Press / Clean and Jerk</h3>
+					<p>Target: 75 % | Current: {{ ppcnj() }}</p>
+
+					<h3>Deadlift / Back Squat</h3>
+					<p>Target: 123 % | Current: {{ dlbs() }}</p>
+
+<!-- 					<h3>Front Squat / Clean and Jerk</h3>
+					<p>Target: 108 % | Current: {{ fscnj() }}</p> -->
+
+					<h3>Strict Press / Back Squat</h3>
+					<p>Target: 45 % | Current: {{ ohpbs() }}</p>
+
+					<h3>Push Press / Back Squat</h3>
+					<p>Target: 64 % | Current: {{ ppbs() }}</p>
+
+					<h3>Clean / Back Squat</h3>
+					<p>Target: 82 % | Current: {{ clnbs() }}</p>
+
+					<h3>Power Clean / Back Squat</h3>
+					<p>Target: 68 % | Current: {{ pcbs() }}</p>
+
+					<h3>Power Snatch / Back Squat</h3>
+					<p>Target: 54 % | Current: {{ psbs() }}</p>
+
+					<h3>Jerk / Back Squat</h3>
+					<p>Target: 84 % | Current: {{ jerkbs() }}</p>
+
+					<h3>Clean / Clean and Jerk</h3>
+					<p>Target: 105 % | Current: {{ clncnj() }}</p>
+
+					<h3>Jerk / Clean and Jerk</h3>
+					<p>Target: 55 % | Current: {{ jerkcnj() }}</p>
+
+					<h3>Power Clean / Clean and Jerk</h3>
+					<p>Target: 85 % | Current: {{ pccnj() }}</p>
+
+					<h3>Power Snatch / Clean and Jerk</h3>
+					<p>Target: 68 % | Current: {{ pscnj() }}</p>
+
+				</div>
+			</div>
+			<div ng-controller="weightliftingController" class="tab-pane" id="priorities">
+				<div class="container tab-container">
+
+					<p>WOLOLOLOLO</p>
+					<ol>
+						<li>Give up</li>
+						<li>You will never be this <a href="https://www.youtube.com/watch?v=W1jEkS3Z9qU&feature=iv&src_vid=IXffCCC2rDo&annotation_id=annotation_4140784717" target="_blank">good</a></li>
+						<li>{{ snPriority() }}</li>
+					</ol>
+
+				</div>
+			</div>
+			<div class="tab-pane" id="resources">
+				<div class="container tab-container">
+					<p>Here are few links explaining the benefits of finding your lifting ratios and the overall rationale behind this calculator.</p>
+					<ul>
+						<li><a href="http://firstpull.net/2014/03/26/the-use-of-ratios-for-weakness-identification-and-programming/">First Pull</a></li>
+						<li><a href="http://www.catalystathletics.com/article/1786/The-Relation-of-Snatch-Clean-Jerk-and-Squat-Weights/">Catalyst Athletics</a></li>
+						<li><a href="http://wilfleming.com/squat-more-lift-more-olympic-lift-ratios/">Wil Fleming</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer></footer>
+	
+</body>
