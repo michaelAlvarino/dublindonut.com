@@ -36,7 +36,7 @@
 			<li><a href="#priorities" data-toggle="tab">Priorities</a></li>
 			<li><a href="#resources" data-toggle="tab">Resources</a></li>
 		</ul>
-		<div id="weightliftingTab-content" class="tab-content">
+		<div id="weightliftingTab-content" class="tab-content" ng-controller="weightliftingController as wl">
 			<div class="tab-pane active" id="about">
 				<div class="container tab-container">
 					<h3>Ultimate Weightlifting Calculator!</h3>
@@ -55,134 +55,149 @@
 			<div class="tab-pane" id="inputs">
 				<div class="container tab-container">
 					<form>
+						<!-- Pounds <input type="radio" ng-model="wl.lbs" value="pounds">  
+						Kilograms <input type="radio" ng-model="wl.kg" value="kilograms">
+						<br><br> -->
+
 						<p>Back Squat</p>
-						<input type="number" min="0" ng-model="bs" class="form-control" placeholder="Enter 1RM back squat">
+						<input type="number" min="0" ng-model="wl.bs" class="form-control" placeholder="Enter 1RM back squat">
 						<br>
 
 						<p>Front Squat</p>
-						<input type="number" min="0" ng-model="fs" class="form-control" placeholder="Enter 1RM front squat">
+						<input type="number" min="0" ng-model="wl.fs" class="form-control" placeholder="Enter 1RM front squat">
 						<br>
 
 						<p>Deadlift</p>
-						<input type="number" min="0" ng-model="dl" class="form-control" placeholder="Enter 1RM deadlift / clean pull">
+						<input type="number" min="0" ng-model="wl.dl" class="form-control" placeholder="Enter 1RM deadlift">
 						<br>
 
 						<p>Strict Press</p>
-						<input type="number" min="0" ng-model="ohp" class="form-control" placeholder="Enter 1RM strict press / ohp">
+						<input type="number" min="0" ng-model="wl.ohp" class="form-control" placeholder="Enter 1RM strict press">
 						<br>
 
 						<p>Push Press</p>
-						<input type="number" min="0" ng-model="pp" class="form-control" placeholder="Enter 1RM push press">
+						<input type="number" min="0" ng-model="wl.pp" class="form-control" placeholder="Enter 1RM push press">
 						<br>
 
 						<p>Jerk</p>
-						<input type="number" min="0" ng-model="jerk" class="form-control" placeholder="Enter 1RM jerk">
+						<input type="number" min="0" ng-model="wl.jerk" class="form-control" placeholder="Enter 1RM jerk">
 						<br>
 
 						<p>Clean</p>
-						<input type="number" min="0" ng-model="cln" class="form-control" placeholder="Enter 1RM clean">
+						<input type="number" min="0" ng-model="wl.cln" class="form-control" placeholder="Enter 1RM clean">
 						<br>
 
 						<p>Power Clean</p>
-						<input type="number" min="0" ng-model="pc" class="form-control" placeholder="Enter 1RM power clean">
+						<input type="number" min="0" ng-model="wl.pc" class="form-control" placeholder="Enter 1RM power clean">
 						<br>
 
 						<p>Clean and Jerk</p>
-						<input type="number" min="0" ng-model="cnj" class="form-control" placeholder="Enter 1RM clean and jerk">
+						<input type="number" min="0" ng-model="wl.cnj" class="form-control" placeholder="Enter 1RM clean and jerk">
 						<br>
 
 						<p>Snatch</p>
-						<input type="number" min="0" ng-model="sn" class="form-control" placeholder="Enter 1RM snatch">
+						<input type="number" min="0" ng-model="wl.sn" class="form-control" placeholder="Enter 1RM snatch">
 						<br>
 
 						<p>Power Snatch</p>
-						<input type="number" min="0" ng-model="ps" class="form-control" placeholder="Enter 1RM power snatch">
+						<input type="number" min="0" ng-model="wl.ps" class="form-control" placeholder="Enter 1RM power snatch">
+
+						<!-- {{ l.fs / l.bs }} -->
 
 					</form>
 				</div>
 			</div>
-			<div ng-controller="weightliftingController" class="tab-pane" id="ratios">
+			<div class="tab-pane" id="ratios">
 				<div class="container tab-container">
 
 					<h3>Snatch / Back Squat</h3>
 					<!-- <div class="alert-danger"> -->
-						<p>Target: 65 % | Current: {{ snbs() }}</p>
+						<p>Target: 65 % | Current: {{ wl.snbs() }}</p>
 					<!-- </div> -->
 
 					<h3>Snatch / Deadlift</h3>
-					<p>Target: 40 % | Current: {{ sndl() }}</p>
+					<p>Target: 40 % | Current: {{ wl.sndl() }}</p>
 
 					<h3>Snatch / Clean and Jerk</h3>
-					<p>Target: 81 % | Current: {{ sncnj() }}</p>
+					<p>Target: 81 % | Current: {{ wl.sncnj() }}</p>
 
 					<h3>Back Squat / Clean and Jerk</h3>
-					<p>Target: 128 % | Current: {{ bscnj() }}</p>
+					<p>Target: 128 % | Current: {{ wl.bscnj() }}</p>
 
 					<h3>Clean and Jerk / Deadlift</h3>
-					<p>Target: 55 % | Current: {{ cnjdl() }}</p>
+					<p>Target: 55 % | Current: {{ wl.cnjdl() }}</p>
 
 					<h3>Front Squat / Back Squat</h3>
-					<p>Target: 87 % | Current: {{ fsbs() }}</p>
+					<p>Target: 87 % | Current: {{ wl.fsbs() }}</p>
 
 					<h3>Clean and Jerk / Front Squat</h3>
-					<p>Target: 85 % | Current: {{ cnjfs() }}</p>
+					<p>Target: 85 % | Current: {{ wl.cnjfs() }}</p>
 
 					<h3>Power Clean / Clean</h3>
-					<p>Target: 85 % | Current: {{ pccln() }}</p>
+					<p>Target: 88 % | Current: {{ wl.pccln() }}</p>
 
 					<h3>Power Snatch / Snatch</h3>
-					<p>Target: 85 % | Current: {{ pssn() }}</p>
+					<p>Target: 88 % | Current: {{ wl.pssn() }}</p>
 
 					<h3>Push Press / Clean and Jerk</h3>
-					<p>Target: 75 % | Current: {{ ppcnj() }}</p>
+					<p>Target: 75 % | Current: {{ wl.ppcnj() }}</p>
 
 					<h3>Deadlift / Back Squat</h3>
-					<p>Target: 123 % | Current: {{ dlbs() }}</p>
+					<p>Target: 123 % | Current: {{ wl.dlbs() }}</p>
 
 <!-- 					<h3>Front Squat / Clean and Jerk</h3>
 					<p>Target: 108 % | Current: {{ fscnj() }}</p> -->
 
 					<h3>Strict Press / Back Squat</h3>
-					<p>Target: 45 % | Current: {{ ohpbs() }}</p>
+					<p>Target: 45 % | Current: {{ wl.ohpbs() }}</p>
 
 					<h3>Push Press / Back Squat</h3>
-					<p>Target: 64 % | Current: {{ ppbs() }}</p>
+					<p>Target: 64 % | Current: {{ wl.ppbs() }}</p>
 
 					<h3>Clean / Back Squat</h3>
-					<p>Target: 82 % | Current: {{ clnbs() }}</p>
+					<p>Target: 82 % | Current: {{ wl.clnbs() }}</p>
 
 					<h3>Power Clean / Back Squat</h3>
-					<p>Target: 68 % | Current: {{ pcbs() }}</p>
+					<p>Target: 68 % | Current: {{ wl.pcbs() }}</p>
 
 					<h3>Power Snatch / Back Squat</h3>
-					<p>Target: 54 % | Current: {{ psbs() }}</p>
+					<p>Target: 54 % | Current: {{ wl.psbs() }}</p>
 
 					<h3>Jerk / Back Squat</h3>
-					<p>Target: 84 % | Current: {{ jerkbs() }}</p>
+					<p>Target: 84 % | Current: {{ wl.jerkbs() }}</p>
 
 					<h3>Clean / Clean and Jerk</h3>
-					<p>Target: 105 % | Current: {{ clncnj() }}</p>
+					<p>Target: 103 % | Current: {{ wl.clncnj() }}</p>
 
 					<h3>Jerk / Clean and Jerk</h3>
-					<p>Target: 55 % | Current: {{ jerkcnj() }}</p>
+					<p>Target: 105 % | Current: {{ wl.jerkcnj() }}</p>
 
 					<h3>Power Clean / Clean and Jerk</h3>
-					<p>Target: 85 % | Current: {{ pccnj() }}</p>
+					<p>Target: 85 % | Current: {{ wl.pccnj() }}</p>
 
 					<h3>Power Snatch / Clean and Jerk</h3>
-					<p>Target: 68 % | Current: {{ pscnj() }}</p>
+					<p>Target: 68 % | Current: {{ wl.pscnj() }}</p>
 
 				</div>
 			</div>
-			<div ng-controller="weightliftingController" class="tab-pane" id="priorities">
+			<div class="tab-pane" id="priorities">
 				<div class="container tab-container">
 
-					<p>WOLOLOLOLO</p>
-					<ol>
-						<li>Give up</li>
-						<li>You will never be this <a href="https://www.youtube.com/watch?v=W1jEkS3Z9qU&feature=iv&src_vid=IXffCCC2rDo&annotation_id=annotation_4140784717" target="_blank">good</a></li>
-						<li>{{ snPriority() }}</li>
-					</ol>
+					<h3>Lift Priority</h3>
+					<p>The lifts with the highest frequency should be targeted first</p>
+					<ul>
+						<li>{{ wl.bsP() }}</li>
+						<li>{{ wl.fsP() }}</li>
+						<li>{{ wl.dlP() }}</li>
+						<li>{{ wl.ohpP() }}</li>
+						<li>{{ wl.ppP() }}</li>
+						<li>{{ wl.jerkP() }}</li>
+						<li>{{ wl.clnP() }}</li>
+						<li>{{ wl.pcP() }}</li>
+						<li>{{ wl.cnjP() }}</li>
+						<li>{{ wl.snP() }}</li>
+						<li>{{ wl.psP() }}</li>
+					</ul>
 
 				</div>
 			</div>
@@ -194,6 +209,7 @@
 						<li><a href="http://www.catalystathletics.com/article/1786/The-Relation-of-Snatch-Clean-Jerk-and-Squat-Weights/">Catalyst Athletics</a></li>
 						<li><a href="http://wilfleming.com/squat-more-lift-more-olympic-lift-ratios/">Wil Fleming</a></li>
 					</ul>
+					<p>Also, here's Liao Hui lifting a <a href="https://www.youtube.com/watch?v=W1jEkS3Z9qU&feature=iv&src_vid=IXffCCC2rDo&annotation_id=annotation_4140784717" target="_blank">WR</a></p>
 				</div>
 			</div>
 		</div>
