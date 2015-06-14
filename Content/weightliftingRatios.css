@@ -6,6 +6,7 @@
 	background-attachment: fixed;
 	height: 400px;
 	color: white;
+	text-shadow: 2px 2px 1px black;
 }
 .jumbotron a {
 	color: white;
@@ -19,6 +20,7 @@
 }
 .tab-container {
 	padding: 10px;
+	min-height: 600px;
 }
 
 .form-control {
