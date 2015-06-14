@@ -62,7 +62,6 @@ angular.module('weightliftingApp',[])
             new ratio(2,   0,   "Deadlift",       "Back Squat",       1.23),
             new ratio(3,   0,   "Overhead Press", "Back Squat",       0.45),
             new ratio(4,   0,   "Push Press",     "Back Squat",       0.64),
-            new ratio(6,   0,   "Clean",          "Back Squat",       0.45),
             new ratio(6,   0,   "Clean",          "Back Squat",       0.82),
             new ratio(7,   0,   "Power Clean",    "Back Squat",       0.68),
             new ratio(10,  0,   "Power Snatch",   "Back Squat",       0.54),
